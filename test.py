@@ -6,7 +6,7 @@ with open('config.yaml') as f:
     args = yaml.safe_load(f)
 
 def load_model(RL_model, stock_code):
-
+    # 加载训练好的模型
     if RL_model == 'A2C':
         model = A2C.load(f"./check_points/{RL_model}_{stock_code}")
     elif RL_model == 'PPO':
@@ -19,6 +19,7 @@ def load_model(RL_model, stock_code):
     return model
 
 def test_model(test_env, len_test, model):
+    # 测试模型
     dates = []
     daily_profits = []
     daily_opens = []
@@ -41,17 +42,18 @@ def test_model(test_env, len_test, model):
     return dates, daily_profits, daily_opens, daily_closes, daily_highs, daily_lows
 
 def test_strategy(stock_code, RL_model):
-
+    # 获得股票文件路径
     stock_file = find_file('./data/tushare_data/test', str(stock_code))
+    # 准备环境
     test_env, len_test = prepare_env(stock_file)
 
+    # 加载训练好的模型
     model = load_model(RL_model, stock_code)
 
+    # 测试模型并绘制日盈利图
     dates, daily_profits, daily_opens, daily_closes, daily_highs, daily_lows = test_model(test_env, len_test, model)
     plot_daily_profits(stock_code, RL_model, daily_profits, dates, daily_opens, daily_closes, daily_highs, daily_lows)
 
 if __name__ == '__main__':
-
+    # 从配置文件中读取参数
     test_strategy(args['train_args']['stock_code'], args['train_args']['rl_model'])
-
-
