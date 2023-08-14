@@ -10,6 +10,8 @@ from stable_baselines3 import PPO, A2C, DDPG
 from stable_baselines3.common.noise import OrnsteinUhlenbeckActionNoise
 from stable_baselines3.common.vec_env import DummyVecEnv
 
+# 该代码实现了一个集成策略的回测和预测过程。集成策略使用了A2C、PPO和DDPG三种强化学习算法，并根据验证集上的夏普比率选择最优模型进行预测。
+# 预测结果可以用于制定交易策略。
 # 设置数据路径
 path = 'data/trading.csv'
 df = pd.read_csv(path)
