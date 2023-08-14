@@ -6,6 +6,9 @@ from util import find_file, prepare_env
 with open('config.yaml') as f:
     args = yaml.safe_load(f)
 
+# 这段代码的功能是根据配置文件中的参数训练股票交易策略模型。
+# 根据选择的强化学习模型（如PPO、A2C、DDPG、TD3），创建对应的模型对象，并使用指定的股票数据进行训练。训练完成后，将模型保存到指定的文件夹中。
+
 def train_model(env, RL_model='PPO'):
     # 根据所选择的RL模型创建对应的模型对象
     if RL_model == 'A2C':
