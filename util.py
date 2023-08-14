@@ -6,6 +6,10 @@ from stable_baselines3.common.vec_env import DummyVecEnv
 from env.SingleStockEnv import StockTradingEnv
 import pandas as pd
 
+
+# 这段代码主要实现了绘制每日盈利曲线和K线图的功能
+
+
 def prepare_env(stock_file):
     # 导入股票数据
     df = pd.read_csv(stock_file)
