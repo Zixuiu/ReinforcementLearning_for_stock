@@ -7,9 +7,9 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import pickle
-
-# shares normalization factor
-# 100 shares per trade
+# StockEnvTrain类是用于训练的环境，它的主要功能包括初始化状态、执行买卖操作、计算奖励和更新状态等。
+# 在训练环境中，每次交易的股票数量是固定的（100股），并且不考虑交易费用。
+# 此外，训练环境还会记录每一步的总资产变化和奖励值。
 HMAX_NORMALIZE = 100
 # initial amount of money we have in our account
 INITIAL_ACCOUNT_BALANCE=1000000
