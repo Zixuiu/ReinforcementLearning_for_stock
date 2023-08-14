@@ -5,6 +5,8 @@ from util import find_file, plot_daily_profits, prepare_env
 with open('config.yaml') as f:
     args = yaml.safe_load(f)
 
+# 该代码是用于测试训练好的强化学习模型在股票交易环境中的表现，并绘制每日收益图。
+
 def load_model(RL_model, stock_code):
     # 加载训练好的模型
     if RL_model == 'A2C':
