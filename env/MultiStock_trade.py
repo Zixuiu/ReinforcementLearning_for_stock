@@ -8,6 +8,9 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import pickle
 
+# 这段代码是一个用于股票交易的环境，
+# 它实现了一个OpenAI gym的环境。它包括了股票的买卖操作，根据当前资产总价值计算奖励，以及更新状态等功能。这个环境可以用于训练股票交易的强化学习模型。
+
 # 每次交易的股票数量的归一化因子
 # 每次交易100股
 HMAX_NORMALIZE = 100
